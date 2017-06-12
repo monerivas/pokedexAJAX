@@ -33,15 +33,21 @@ var mostrarPersonajes = function (personajes) {
 
 
 /*------------Plantilla--------------*/
+var $areaImpresion = $("#modal");
 
-var plantillaPlaneta = "   <h2>Pokemon</h2>" +
+var plantillaPlaneta = "<section class='modal'>"+
+    "<h2>Pokemon</h2>" +
     "<p><strong>Nombre:</strong>__name__ </p>" +
     "<p><strong>Colo:</strong>__color__</p>"+
     "<p><strong>Forma:</strong>__shape__</p>"+
     "<p><strong>Habitad:</strong>__habitat__</p>"+
-    "<p><strong>Genera:</strong>__genera__</p>"  
+    "<p><strong>Genera:</strong>__genera__</p>" +
+"</section>"  
     ;
+
+/*
 $(plantillaPlaneta).addClass("modal");
+*/
 
 var mostarDetallePersonaje = function () {
     var url = $(this).data("url");
@@ -55,6 +61,7 @@ var mostarDetallePersonaje = function () {
         $planetacontenedor.html(
             plantillaPlaneta.replace("__name__", name).replace("__color__", color).replace("__shape__", shape) .replace("__habitat__", habitat).replace("__genera__", genera)
         );
+        $areaImpresion.html(plantillaPlaneta);
     });
 
 };
