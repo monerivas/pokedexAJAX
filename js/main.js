@@ -1,6 +1,7 @@
 var cargarPagina = function () {
     cargarPersonajes();
     $(document).on("click", ".personaje", mostarDetallePersonaje);
+    $('.modal').modal();
 };
 
 var cargarPersonajes = function () {
@@ -24,6 +25,7 @@ var mostrarPersonajes = function (personajes) {
     personajes.forEach(function (personaje) {
         var $li = $("<li/>");
         $li.text(personaje.name); /*Aqui le puedo concatenar las propiedades*/
+        $li.attr("data-target", "modal1");
         $li.addClass("personaje");
         $li.attr("data-url", personaje.url);
         $ul.append($li);
@@ -35,19 +37,16 @@ var mostrarPersonajes = function (personajes) {
 /*------------Plantilla--------------*/
 var $areaImpresion = $("#modal");
 
-var plantillaPlaneta = "<section class='modal'>"+
+var plantillaPlaneta = "<section id='modal1' class='modal'>"+
     "<h2>Pokemon</h2>" +
     "<p><strong>Nombre:</strong>__name__ </p>" +
     "<p><strong>Colo:</strong>__color__</p>"+
     "<p><strong>Forma:</strong>__shape__</p>"+
     "<p><strong>Habitad:</strong>__habitat__</p>"+
     "<p><strong>Genera:</strong>__genera__</p>" +
-"</section>"  
-    ;
+"</section>";
 
-/*
-$(plantillaPlaneta).addClass("modal");
-*/
+/*$(plantillaPlaneta).addClass("modal");*/
 
 var mostarDetallePersonaje = function () {
     var url = $(this).data("url");
@@ -58,10 +57,17 @@ var mostarDetallePersonaje = function () {
         var shape= response.shape.name;
         var habitat= response.habitat.name;
         var genera= response.genera[0].genus;
-        $planetacontenedor.html(
+        
+        $("#idname").text(name);
+        $("#idcolor").text(color);
+        $("#idshape").text(shape);
+        $("#idhabitat").text(habitat);
+        $("#idgenera").text(genera);
+        
+/*        $planetacontenedor.html(           
             plantillaPlaneta.replace("__name__", name).replace("__color__", color).replace("__shape__", shape) .replace("__habitat__", habitat).replace("__genera__", genera)
-        );
-        $areaImpresion.html(plantillaPlaneta);
+        );*/
+       
     });
 
 };
