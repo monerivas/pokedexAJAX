@@ -1,0 +1,13 @@
+*{
+    color:#2d4260;
+}
+header .row{
+    background-color: aqua;
+}
+.styleModal{
+    color:#2d4260;
+    border-radius: 25px;  
+}
+.styleModal .col{
+   background-color: aqua;
+}

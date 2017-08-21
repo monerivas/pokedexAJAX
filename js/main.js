@@ -25,19 +25,23 @@ var contadorImagen=1;
 
 var mostrarPersonajes = function (personajes) {
     var $ul = $("#personajes");
+    $ul.addClass("center");
+
     personajes.forEach(function (personaje) {
         var $img= $("<img/>");
         var $li = $("<li/>");
+        var $p=($("<p />").text(personaje.name));
+        
 
-        $li.text(personaje.name); /*Aqui le puedo concatenar las propiedades*/
         $li.attr("data-target", "modal1");
-        $li.addClass("personaje");
+        $li.addClass("personaje left");
         $li.attr("data-url", personaje.url);
 
         $img.attr("src","img/" + contadorImagen + ".jpg");
         $img.addClass("responsive-img center-align"); //poner clase de edicion propia
         contadorImagen++;
-
+        
+        $li.append($p);
         $li.append($img);
         $ul.append($li);
         console.log(personaje.name + "  --  "+ personaje.url);
@@ -77,9 +81,7 @@ var mostarDetallePersonaje = function () {
 /*        $planetacontenedor.html(
             plantillaPlaneta.replace("__name__", name).replace("__color__", color).replace("__shape__", shape) .replace("__habitat__", habitat).replace("__genera__", genera)
         );*/
-
     });
-
 };
 
 $(document).ready(cargarPagina);

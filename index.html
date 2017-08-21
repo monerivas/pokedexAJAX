@@ -12,26 +12,39 @@
 
 <body>
 
+    <header class="container-fluid">
+        <section class="row center">
+            <div class="col s8 offset-s2">
+                <h1>Lista Pokemones</h1>
+                <h5>Total de pokemones encontrados <span id="total"></span></h5>
+            </div>
+        </section>
+    </header>
 
 
+    <main class="container">
+        <section class="row">
+            <ul id="personajes"></ul>
+        </section>
+    </main>
 
-    <span id="total"></span>
-    <ul id="personajes"></ul>
-    
-    
-    
-    <div id="planeta">
-    </div>   
-    
-    <section id="modal1" class="modal">
-      
-    <h2>MODAL Pokemon</h2>
-    <p><strong>Nombre:</strong><span id="idname"></span></p>
-    <p><strong>Color:</strong><span id="idcolor"></span></p>
-    <p><strong>Forma:</strong><span id="idshape"></span></p>
-    <p><strong>Habitad:</strong><span id="idhabitat"></span></p>
-    <p><strong>Genera:</strong><span id="idgenera"></span></p> 
-    <p id="foto"></p>       
+    <section id="modal1" class="modal center styleModal">
+        <div class="row">
+            <h3 id="idname"></h3>
+        </div>
+        
+        <div class="row">
+           <strong class="col s4 offset-s2">Color:</strong><span id="idcolor" class="col s4"></span> 
+        </div>
+        <div class="row">
+           <strong class="col s4 offset-s2">Forma:</strong><span id="idshape" class="col s4"></span> 
+        </div>
+        <div class="row">
+           <strong class="col s4 offset-s2">Habitad:</strong><span id="idhabitat" class="col s4"></span> 
+        </div>
+        <div class="row">
+           <strong class="col s4 offset-s2">Genera:</strong><span id="idgenera" class="col s4"></span> 
+        </div>
     </section>
 
 
